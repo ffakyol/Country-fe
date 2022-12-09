@@ -12,6 +12,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import Icon from "./Icon";
 
 
+
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -91,7 +92,9 @@ export default function SearchAppBar() {
     </Box>
 
      <Icon/>
-      <div className='dataContainer'>
+     <div className="App">
+     
+     <div className="incomeListContainer">
         {
           Data
             .filter((val) => {
@@ -105,22 +108,20 @@ export default function SearchAppBar() {
                 return val;
               }
 
-            }).map((val) => {
-              return (
-                <div className="data" key={val.id}>
-                  
-                  <h3>Name:{val.name}</h3>
-                  <p>Phone:{val.phone}</p>
+            }).map((item) => (
+
+                  <div key={item.id} className="incomeList">
+                  <div>Phone:{item.phone}</div>
+                
+                <div>Name:{item.name}</div><br></br>
                 
                  
 
                 </div>
-              )
-            })
-        }
-      </div>
-    </div>
+            ))}
+            </div>
+          </div>
+        </div>
   );
-}
-
+};
 

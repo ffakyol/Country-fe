@@ -1,13 +1,17 @@
+
 import './App.css';
-import  Search  from './Search';
+//import  GridView  from './GridView';
+import  ListView  from './ListView';
 
 
 function App() {
 
    return (
      <div>
-      <Search/>
+      
+      <ListView/> 
 
+      
      </div>
   );
 }

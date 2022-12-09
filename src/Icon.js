@@ -3,8 +3,6 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import { IconButton } from "@mui/material";
 
-
-
 export default function SearchAppBar() {
    
     return (
@@ -19,6 +17,7 @@ export default function SearchAppBar() {
           className="feyza">
           < GridViewIcon sx={{ fontSize: 50 }}
           color="success">
+            
           </GridViewIcon>
         </IconButton> 
         <IconButton

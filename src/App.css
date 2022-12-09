@@ -86,3 +86,37 @@ p {
   opacity: .5;
   transform: scale(1.1);
 }
+.incomeListContainer {
+  margin-top: 0px;
+  width: center;
+  background-color: #fdfdfd;
+  padding: 25px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.btn:hover{
+  background-color: black;
+  color: white;
+  transform: scale(1.1);
+}
+
+button:hover{
+  background-color: black;
+  color: white;
+  transform: scale(1.1);
+}
+.incomeList {
+  background-color: #c3e5ae;
+  padding: 60px 100px;
+  width:1800px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-top: 70px;
+  column-gap: 20px;
+}
