@@ -11,7 +11,7 @@ import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import Icon from "./Icon";
 
-import  ListView  from './ListView';
+
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -93,6 +93,7 @@ export default function SearchAppBar() {
     </Box>
 
      <Icon/>
+     
      <div className='dataContainer'>
         {
           Data

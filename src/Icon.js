@@ -12,9 +12,17 @@ export default function SearchAppBar() {
           edge="start"
           color="inherit"
           aria-label="open drawer"
-          sx={{ px: 12,borderRadius: 5,
-          ml: 2 ,mr: 234 }}
-          className="feyza">
+          
+        sx={{
+          borderRadius: 5,
+          ml: 46 ,mr: 139 ,
+          "&:hover": {
+            backgroundColor: "transparent",
+            cursor: "default",
+            
+          }}}
+          
+         >
           < GridViewIcon sx={{ fontSize: 50 }}
           color="success">
             
@@ -25,11 +33,20 @@ export default function SearchAppBar() {
            edge="start"
            color="inherit"
            aria-label="open drawer"
-           sx={{ px: 6, py: 0.8,borderRadius: 5,
-             mr: 1 }}
-             className="feyza"> 
+
+           sx={{
+          px:1,
+            borderRadius: 5,
+            ml: 46 ,mr: 0 ,
+            "&:hover": {
+              backgroundColor: "transparent",
+              cursor: "default",
+              
+            }}}
+           
+             > 
            <FilterListIcon 
-             sx={{ fontSize: 55 }}
+             sx={{ fontSize: 50 }}
              color="success">
            </FilterListIcon> Sort
         </IconButton>
@@ -39,8 +56,18 @@ export default function SearchAppBar() {
            edge="start"
            color="inherit"
            aria-label="open drawer"
+
+           sx={{
+          
+            borderRadius: 5,
+            ml: 0 ,mr: 0 ,
+            "&:hover": {
+              backgroundColor: "transparent",
+              cursor: "default",
+              
+            }}}
            
-           className="feyza">
+           >
        
            <FilterAltIcon
             sx={{ fontSize: 50 }}

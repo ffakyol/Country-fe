@@ -108,17 +108,16 @@ export default function SearchAppBar() {
                 return val;
               }
 
-            }).map((item) => (
-
-                  <div key={item.id} className="incomeList">
+            }).map((item) => {
+              return(
+                  <div className="incomeList" key={item.id} >
                   <div>Phone:{item.phone}</div>
-                
-                <div>Name:{item.name}</div><br></br>
-                
-                 
-
+                   <div>Name:{item.name}</div><br></br>
                 </div>
-            ))}
+                
+            )
+            })
+            }
             </div>
           </div>
         </div>
