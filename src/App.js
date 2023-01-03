@@ -1,7 +1,7 @@
 
 import './App.css';
-//import  GridView  from './GridView';
-import  ListView  from './ListView';
+import Header from './Header';
+import Qualification from "./Qualification"
 
 
 function App() {
@@ -9,7 +9,9 @@ function App() {
    return (
      <div>
       
-      <ListView/> 
+       <Header/>
+      <Qualification/>
+      
 
       
      </div>

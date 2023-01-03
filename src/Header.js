@@ -4,27 +4,31 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
-import Icon from "./Icon";
 import { styled, alpha } from '@mui/material/styles';
 import { useState } from 'react';
+
+
+
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
   backgroundColor: alpha(theme.palette.common.white, 0.15),
   '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
+    backgroundColor: alpha(theme.palette.common.white, 0.50),
   },
-  marginLeft: 0,
+  marginLeft: 100,
   width: '100%',
   [theme.breakpoints.up('sm')]: {
     marginLeft: theme.spacing(1),
     width: 'auto',
+    
   },
+  
 }));
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 2),
+  padding: theme.spacing(0, 1),
   height: '100%',
   position: 'absolute',
   pointerEvents: 'none',
@@ -36,7 +40,7 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: 'inherit',
   '& .MuiInputBase-input': {
-    padding: theme.spacing(1, 1, 1, 0),
+    padding: theme.spacing(1.5, 200, 1.5, 1),
     // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create('width'),
@@ -50,9 +54,14 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
+
+
+
 export default function SearchAppBar() {
-  const [ setSearchTerm] = useState("");
+ 
+  const [searchTerm, setSearchTerm] = useState("");
   return (
+    
     <div>
     <Box sx={{ flexGrow: 1 }}>
         
@@ -70,18 +79,15 @@ export default function SearchAppBar() {
             <SearchIcon/>
           </SearchIconWrapper>
           <StyledInputBase
-          className='search' type="text" 
             placeholder="Search…"
             inputProps={{ 'aria-label': 'search'}}
-            onChange={(e) => setSearchTerm(e.target.value)} 
-         />
-        
+            onChange={(e) => setSearchTerm(e.target.value)} />
         </Search>
       </Toolbar>
     </AppBar>
+    
   </Box>
 
-   <Icon/>
    </div>
    );
 }

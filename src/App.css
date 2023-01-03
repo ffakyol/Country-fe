@@ -12,7 +12,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: #E9D5CA;
+  background-color: #ffffff;
 }
 
 h3 {
@@ -69,8 +69,8 @@ p {
 
 .incomeList {
   background-color: #c3e5ae;
-  padding: 60px 100px;
-  width:1800px;
+  padding: 60px 90px;
+  width:1200px;
   border-radius: 4px;
   display: flex;
   align-items: center;
@@ -79,10 +79,22 @@ p {
   margin-top: 70px;
   column-gap: 20px;
   letter-spacing: 1.5px;
-
+  box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
+  transition: .3s;
+ 
 
 }
 .incomeList:hover{
   opacity: .5;
   transform: scale(1.1);
 }
+.qualification_content{
+  display: none;
+
+}
+
+.qualification_content-active{
+  display: block;
+}
+
+

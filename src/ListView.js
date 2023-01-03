@@ -1,126 +1,62 @@
-import React, { useState } from "react";
+import React from "react";
 import './App.css';
-import Data from './Data.json';
-
-import { styled, alpha } from '@mui/material/styles';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import InputBase from '@mui/material/InputBase';
-import SearchIcon from '@mui/icons-material/Search';
-import Icon from "./Icon";
+import {useEffect, useState} from "react";
+import {Country} from './model/Country.js';
 
 
+let countries = [];
 
-const Search = styled('div')(({ theme }) => ({
-  position: 'relative',
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.50),
-  },
-  marginLeft: 100,
-  width: '100%',
-  [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(1),
-    width: 'auto',
-    
-  },
-  
-}));
-
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 1),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
-  '& .MuiInputBase-input': {
-    padding: theme.spacing(1.5, 200, 1.5, 1),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      width: '12ch',
-      '&:focus': {
-        width: '20ch',
-      },
-    },
-  },
-}));
-
-
+function toCountryList(data){
+  for (const d in data) {
+    const countryJson = data[d];
+    const country = new Country(
+        countryJson.id,
+        countryJson.name,
+        countryJson.nativeName,
+        countryJson.phoneCode,
+        countryJson.continent,
+        countryJson.capital,
+        countryJson.currency,
+        countryJson.languages,
+        countryJson.flag,
+    );
+    countries.push(country);
+  }
+}
 
 export default function SearchAppBar() {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [restData, setRestData] = useState([]);
+
+  useEffect(() => {
+      fetch('http://localhost:8080/countries')
+          .then((response) => response.json())
+          .then((data) => {
+              setRestData(data);
+          })
+          .catch((err) => {
+              console.log(err.message);
+          });
+  }, []);
+
+  toCountryList(restData);
   return (
-      
-<div>
-   <Box sx={{ flexGrow: 1 }}>
-        
-      <AppBar position="static" color="success" >
-        <Toolbar>
-        <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }} >
-            <h1>COUNTIES</h1>
-         </Typography>
-          <Search  sx={{  borderRadius: 2, mr: 11 }}>
-            <SearchIconWrapper>
-              <SearchIcon/>
-            </SearchIconWrapper>
-            <StyledInputBase
-            className='search' type="text" 
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search'}}
-              onChange={(e) => setSearchTerm(e.target.value)} 
-           />
-          
-          </Search>
-        </Toolbar>
-      </AppBar>
-    </Box>
 
-     <Icon/>
-     <div className="App">
-     
      <div className="incomeListContainer">
-        {
-          Data
-            .filter((val) => {
-              if (searchTerm == "") {
-                return val;
-              } else if (
-                val.name.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())) {
-                return val;
-              } else if (
-                val.phone.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())) {
-                return val;
-              }
-
-            }).map((item) => {
+        { countries.map((item) => {
               return(
                   <div className="incomeList" key={item.id} >
-                  <div>Phone:{item.phone}</div>
-                   <div>Name:{item.name}</div><br></br>
+
+                  <div>Country Code:{item.id}</div>
+                  <div>Country Name:{item.name}</div><br></br>
+                  <div>Phone Code:{item.phoneCode}</div>
+                   
                 </div>
-                
             )
             })
             }
-            </div>
-          </div>
         </div>
+          
+       
   );
 };
 

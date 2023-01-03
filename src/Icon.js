@@ -15,7 +15,7 @@ export default function SearchAppBar() {
           
         sx={{
           borderRadius: 5,
-          ml: 46 ,mr: 139 ,
+          ml: 46 ,mr: 1 ,
           "&:hover": {
             backgroundColor: "transparent",
             cursor: "default",
